@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :groups, dependent: :destroy, foreign_key: 'user_id', class_name: 'Group'
+  has_many :payments, dependent: :destroy
+
   # validates
 
   validates :name , presence: true, length: { maximum: 50 }
