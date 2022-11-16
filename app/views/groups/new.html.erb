@@ -1,13 +1,21 @@
 <div class="new-group">
- <%= form_with model: @group do |form| %>
+ <%= form_with scope: :group, url: groups_path, local: true do |form| %>
   <div class="form-label">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
+
   <div class="form-label">
     <%= form.label :icon %>
     <%= form.text_field :icon %>
   </div>  
+
+  <div class="form-label">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div> 
+
+
   <div class="form-label">
     <%= form.submit %>
   </div>

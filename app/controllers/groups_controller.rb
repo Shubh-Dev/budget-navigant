@@ -5,6 +5,7 @@ class GroupsController < ApplicationController
 
     def show
         @group = Group.find(params[:id])
+        @payments = @group.payments
     end
 
     def new
@@ -12,16 +13,22 @@ class GroupsController < ApplicationController
     end
 
     def create
-        @group = Group.new(group_params)
+        @group = current_user.groups.new(group_params)
         if @group.save
-            redirect_to group_path(@group)
+            redirect_to groups_path
         else
             render :new
         end
     end
+    def destroy 
+        @group = Group.find(params[:id])
+        @group.destroy
+        redirect_to groups_path
+    end
+
     private
 
     def group_params
-        params.require(:group).permit(:name, :icon)
+        params.require(:group).permit(:name, :icon, :description)
     end
 end
