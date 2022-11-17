@@ -3,7 +3,7 @@ class Group < ApplicationRecord
   belongs_to :user
 
   validates :name, :icon, presence: true
-  validates :name, uniqueness: true
+  validates :name, presence: true
   validates :description, length: { maximum: 255 }
 
   def total_amount
