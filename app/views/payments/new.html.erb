@@ -10,6 +10,10 @@
             <%= form.number_field :amount %>
         </div>
 
+        <div class="label">   
+        <%= form.collection_select :group_ids, current_user.groups.order(:name), :id, :name, {}, { class: "form-select  m-2", multiple: true, required: true } %>
+        </div>
+
         <div class="label">
             <%= form.submit %>
         </div>
