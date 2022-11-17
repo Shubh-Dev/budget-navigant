@@ -17,8 +17,6 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: postgres
-  password: motorola123
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
@@ -27,6 +25,8 @@ development:
   <<: *default
   database: budget_navigant_development
   host: localhost
+  username: postgres
+  password: motorola123
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -87,3 +87,4 @@ production:
   database: budget_navigant_production
   username: budget_navigant
   password: <%= ENV["BUDGET_NAVIGANT_DATABASE_PASSWORD"] %>
+  role: myrole
