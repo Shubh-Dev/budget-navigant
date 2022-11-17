@@ -14,26 +14,26 @@
  *= require_self
  */
 
- * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
- }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
 
- body {
-   background-color: rgb(246, 246, 244);
- }
+body {
+  background-color: rgb(246, 246, 244);
+}
 
- .text-center {
-   text-align: center;
- }
+.text-center {
+  text-align: center;
+}
 
- .bg-white {
-   background-color: #fff;
- }
+.bg-white {
+  background-color: #fff;
+}
 
- hr {
-   border: 1px solid #f3f4f6;
- }
+hr {
+  border: 1px solid #f3f4f6;
+}
