@@ -32,6 +32,9 @@
   width: 100%;
   color: #fff;
   padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  align-items: center;
 }
 
 .blue-header-buttom {
@@ -82,10 +85,6 @@
   width: 65vw;
 }
 
-.color-white {
-  color: #fff;
-}
-
 .icon-and-name-show {
   display: flex;
   justify-content: flex-start;
@@ -116,4 +115,18 @@
 .group-icon-img {
   width: 80px;
   height: 80px;
+}
+
+.header-item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.select-area {
+  width: 100%;
+  height: 80px;
+  padding: 10px;
+  background-color: #fff;
+  border: none;
 }

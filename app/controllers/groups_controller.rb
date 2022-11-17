@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
   def index
-    @groups = Group.all
+    @groups = Group.where(user_id: current_user.id).order('created_at DESC')
   end
 
   def show
     @group = Group.find(params[:id])
-    @payments = @group.payments
+    @payments = @group.payments.order('created_at DESC')
   end
 
   def new

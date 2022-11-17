@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to root_path, notice: 'Payment was successfully created.' }
+        format.html { redirect_to @payment.groups.first, notice: 'Payment was successfully created.' }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new }

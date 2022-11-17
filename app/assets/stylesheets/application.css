@@ -23,7 +23,7 @@
 }
 
 body {
-  background-color: rgb(246, 246, 244);
+  background-color: rgb(246, 247, 248);
 }
 
 .text-center {
@@ -35,9 +35,18 @@ body {
 }
 
 .color-grey {
-  color: #999;
+  color: rgb(153, 153, 153);
+}
+
+.color-white {
+  color: #fff;
 }
 
 hr {
   border: 1px solid #f3f4f6;
+}
+
+.log-btns {
+  border: none;
+  background-color: rgb(246, 247, 248);
 }
