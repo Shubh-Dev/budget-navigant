@@ -34,6 +34,10 @@ body {
   background-color: #fff;
 }
 
+.color-grey {
+  color: #999;
+}
+
 hr {
   border: 1px solid #f3f4f6;
 }
