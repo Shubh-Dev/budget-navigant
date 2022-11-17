@@ -1,38 +1,37 @@
 class PaymentsController < ApplicationController
-    def index
-        redirect_to groups_path
+  def index
+    redirect_to groups_path
+  end
+
+  def new
+    @payment = Payment.new
+    # @groups = Group.where(user: current_user)
+  end
+
+  def create
+    @payment = Payment.create(payment_params)
+    @payment.author = current_user
+
+    respond_to do |format|
+      if @payment.save
+        format.html { redirect_to root_path, notice: 'Payment was successfully created.' }
+        format.json { render :show, status: :created, location: @payment }
+      else
+        format.html { render :new }
+        format.json { render json: @payment.errors, status: :unprocessable_entity }
+      end
     end
+  end
 
-    def new
-        @payment = Payment.new
-        # @groups = Group.where(user: current_user)
-    end
+  def destroy
+    @payment = Payment.find(params[:id])
+    @payment.destroy
+    redirect_to groups_path
+  end
 
-    def create
-        @payment = Payment.create(payment_params)
-        @payment.author = current_user
+  private
 
-        respond_to do |format|
-            if @payment.save
-                format.html { redirect_to root_path , notice: 'Payment was successfully created.' }
-                format.json { render :show, status: :created, location: @payment }
-            else
-                format.html { render :new }
-                format.json { render json: @payment.errors, status: :unprocessable_entity }
-            end
-        end
-
-    end
-
-    def destroy
-        @payment = Payment.find(params[:id])
-        @payment.destroy
-        redirect_to groups_path
-    end
-
-    private
-
-    def payment_params
-        params.require(:payment).permit(:name, :amount, :group_ids => [])
-    end
+  def payment_params
+    params.require(:payment).permit(:name, :amount, group_ids: [])
+  end
 end
